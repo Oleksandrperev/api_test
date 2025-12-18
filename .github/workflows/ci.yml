@@ -1,0 +1,20 @@
+name: CI (Docker)
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+
+jobs:
+  test-in-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # checks out your repo into the runner :contentReference[oaicite:0]{index=0}
+
+      - name: Build Docker image
+        run: docker build -t api-test .
+
+      - name: Run tests in container
+        run: docker run --rm api-test
