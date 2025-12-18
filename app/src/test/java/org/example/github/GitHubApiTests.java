@@ -28,7 +28,7 @@ public class GitHubApiTests {
         System.out.println("First repo data: " + firstRepo.toString());
         String repoName = firstRepo.get("name").asText();
         System.out.println("NAME: " + repoName);
-        assertEquals("api_t", repoName);
+        assertEquals("api_t", repoName, "Validation FAILED! Actual value: " + repoName);
         System.out.println("Validation SUCCEED!!!");
 
 
