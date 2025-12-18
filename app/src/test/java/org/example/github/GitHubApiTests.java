@@ -15,7 +15,7 @@ public class GitHubApiTests {
     void getUserRepos_forExistingUser_returns200() throws Exception {
         GitHubApiClient client = new GitHubApiClient();
 
-        ApiResponse response = client.getUserRepos("octocat");
+        ApiResponse response = client.getUserRepos("oleksandrperev");
 
         assertEquals(200, response.getStatusCode(), "Status code should be 200 for existing user");
         assertNotNull(response.getBody());
@@ -28,7 +28,7 @@ public class GitHubApiTests {
         System.out.println("First repo data: " + firstRepo.toString());
         String repoName = firstRepo.get("name").asText();
         System.out.println("NAME: " + repoName);
-        assertEquals("boysenberry-repo-1", repoName);
+        assertEquals("api_test", repoName);
         System.out.println("Validation SUCCEED!!!");
 
 
